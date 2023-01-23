@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:coleta_de_validade_lj04/api/busca_desc/busca_desc.dart';
-import 'package:coleta_de_validade_lj04/pages/about_page.dart';
-import 'package:coleta_de_validade_lj04/widgets/text_field_custom.dart';
+import 'package:coleta_de_validade_lj01/api/busca_desc/busca_desc.dart';
+import 'package:coleta_de_validade_lj01/pages/about_page.dart';
+import 'package:coleta_de_validade_lj01/widgets/text_field_custom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
@@ -64,45 +64,29 @@ class _FormPageState extends State<FormPage> {
   ];
   final selectedSetor = ValueNotifier('');
   final setor = [
-    'CANTINHO DA OFERTAS',
-    'PONTO EXTRA ENTRADA',
-    'RACK DE CEREAIS',
-    'EXPOSITOR DE PÃES',
-    'RETAGUARDA PADARIA',
-    'EXPOSITOR PADARIA DIVERSOS',
-    'BALCÃO DE LATICÍNIOS',
-    'BALCÃO FLV',
-    'PONTO DE EXTRA DE CONGELADOS',
-    'ILHAS DE CONGELADOS',
-    'GELADEIRA COCA PADARIA',
-    'GELADEIRA COCA GRANDE',
-    'GELADEIRA COCA 01',
-    'GELADEIRA COCA 02',
-    'GELADEIRA REQ/MARG/IOG',
-    'COOLER',
-    'EXPOSITOR DE CHURRASCO',
-    'EXPOSITOR DE SALGADINHOS COOLER',
-    'CORREDOR DE BEBIDAS',
-    'CORREDOR BISCOITOS',
-    'CORREDOR MATINAIS',
-    'CORREDOR AUTOMOTIVO/RAÇÃO',
-    'CORREDOR DE LIMPEZA',
-    'CORREDOR PERFUMARIA',
-    'GÔNDULA DE CONSERVAS/CONDIMENTOS E MOLHOS',
-    'CORREDOR NATURAIS',
-    'CORREDOR DE MASSAS',
-    'CORREDOR DE BAZAR',
-    'CORREDOR DE ACHOCOLATADOS/LEITE UHT',
-    'GÔNDULAS BISCOITOS ESPECIAIS',
-    'PONTO EXTRA FRIOS',
-    'PONTO EXTRA FUNDO LOJA',
-    'CHECK STAND PDV 1',
-    'CHECK STAND PDV 2',
-    'CHECK STAND PDV 3',
-    'CHECK STAND PDV 4',
-    'CHECK STAND PDV 5',
-    'CHECK STAND PDV 6',
-    'CHECK STAND PDV 7',
+    'LARANJA',
+    'VERMELHO',
+    'AZUL',
+    'ROXO',
+    'VERDE',
+    'AMARELO',
+    'CINZA',
+    'CORREDOR 01',
+    'CORREDOR 02',
+    'CORREDOR 03',
+    'CORREDOR 04',
+    'CORREDOR 05',
+    'CORREDOR 06',
+    'CORREDOR 07',
+    'CORREDOR 08',
+    'CORREDOR 09',
+    'CORREDOR 10',
+    'CORREDOR 11',
+    'CORREDOR 12',
+    'CORREDOR 13',
+    'CORREDOR 14',
+    'CORREDOR 15',
+
   ];
 
   Future<String> getDesc() async {
@@ -120,7 +104,7 @@ class _FormPageState extends State<FormPage> {
         break;
       }
     }
-    return desc.toString();
+    return desc.toString() == "null"? "Erro": desc.toString();
   }
 
   mostraDesc() async {
@@ -158,7 +142,7 @@ class _FormPageState extends State<FormPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Cadastro'),
+        title: const Text('Cadastro LOJA 01'),
         actions: [
           IconButton(
               onPressed: () {

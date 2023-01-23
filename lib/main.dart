@@ -1,5 +1,5 @@
-import 'package:coleta_de_validade_lj04/pages/form_page.dart';
-import 'package:coleta_de_validade_lj04/pages/splash_page.dart';
+import 'package:coleta_de_validade_lj01/pages/form_page.dart';
+import 'package:coleta_de_validade_lj01/pages/splash_page.dart';
 import 'package:flutter/material.dart';
 
 import 'api/sheets/user_sheets_api.dart';

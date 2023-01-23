@@ -1,9 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="br.dev.carloslima.coleta_de_validade">
+    package="br.dev.carloslima.coleta_de_validade_lj01">
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
    <application
-        android:label="Coleta de Validade"
+        android:label="Coleta de Validade lj 01"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity
