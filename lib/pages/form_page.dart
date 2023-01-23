@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:coleta_de_validade_lj01/api/busca_desc/busca_desc.dart';
-import 'package:coleta_de_validade_lj01/pages/about_page.dart';
-import 'package:coleta_de_validade_lj01/widgets/text_field_custom.dart';
+import 'package:coleta_de_validade_lj02/api/busca_desc/busca_desc.dart';
+import 'package:coleta_de_validade_lj02/pages/about_page.dart';
+import 'package:coleta_de_validade_lj02/widgets/text_field_custom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
