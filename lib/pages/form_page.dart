@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:coleta_de_validade/api/busca_desc/busca_desc.dart';
-import 'package:coleta_de_validade/pages/about_page.dart';
-import 'package:coleta_de_validade/widgets/text_field_custom.dart';
+import 'package:coleta_de_validade_lj04/api/busca_desc/busca_desc.dart';
+import 'package:coleta_de_validade_lj04/pages/about_page.dart';
+import 'package:coleta_de_validade_lj04/widgets/text_field_custom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
@@ -106,26 +106,10 @@ class _FormPageState extends State<FormPage> {
   ];
 
   Future<String> getDesc() async {
-    isSave = true;
-
     var url = Uri.parse(
-      'http://192.168.18.6:8080/api/by-ean/${eanControl.text.toString()}',
-    );
-    var response = await http.get(url, headers: {
-      "content-type" : "application/json",
-      "accept" : "application/json",
-    });
-
-    if(response.statusCode == 200){
-      var myJson = json.decode(response.body);
-
-      return myJson['description'];
-    }else{
-      return "Erro";
-    }
-
-
-    /*// cria a lista com a respostas separada por "<"
+        'https://cosmos.bluesoft.com.br/produtos/${eanControl.text.toString()}');
+    var response = await http.get(url);
+    // cria a lista com a respostas separada por "<"
     var list = response.body.split('<');
     //retorn com a descricao
     var desc;
@@ -133,14 +117,10 @@ class _FormPageState extends State<FormPage> {
       if (t.contains('product_description')) {
         var separacao = t.split('>');
         desc = separacao[1];
-        print("desc.toString()");
-        print(desc.toString());
         break;
       }
-      return desc.toString();
     }
-    return "Erro";*/
-
+    return desc.toString();
   }
 
   mostraDesc() async {
@@ -149,7 +129,6 @@ class _FormPageState extends State<FormPage> {
       var text = await getDesc();
       setState(() {
         descControl.text = text.toString();
-        isSave = false;
       });
     }
   }
@@ -196,11 +175,11 @@ class _FormPageState extends State<FormPage> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                TextFieldCustom(
+                /*TextFieldCustom(
                   label: "Code",
                   controler: codControl,
                   inputType: TextInputType.number,
-                ),
+                ),*/
                 Row(
                   children: [
                     Flexible(
@@ -215,12 +194,11 @@ class _FormPageState extends State<FormPage> {
                           return null;
                         },
                         keyboardType: TextInputType.number,
-                        onChanged: (newValue){
-                          if(newValue.length > 6){
+                        onChanged: (newValue) {
+                          if (newValue.length > 6) {
                             mostraDesc();
                           }
                         },
-
                       ),
                     ),
                     Flexible(
@@ -238,11 +216,6 @@ class _FormPageState extends State<FormPage> {
                     if (value == null || value.isEmpty || value == "Erro")
                       return 'Campo obrigatorio';
                     return null;
-                  },
-                  onChanged: (value) {
-                    if (descControl.text.isEmpty) {
-                      mostraDesc();
-                    }
                   },
                 ),
                 TextFormField(
